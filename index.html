@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossiê de Patrocínio – Projeto Singapura WRO 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: A single-page, scrolling website with a top navigation bar for easy access to thematic sections. The structure flows from an emotional hook (Hero/Story) to providing context (The Event), presenting the problem (The Budget), offering the solution (Sponsorship Tiers), and ending with a clear call to action (Contact). This structure provides a clear narrative for potential sponsors. -->
+    <!-- Visualization & Content Choices: The core data visualization is the budget (Doughnut Chart via Chart.js) for quick comprehension. Sponsorship tiers are presented as clear, comparable cards to facilitate decision-making. The user flow is linear down the page, guiding the user through the team's story to the sponsorship ask. All choices are made to support a professional and persuasive presentation. Library/Method: Chart.js for data viz, TailwindCSS for layout. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #334155;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            max-height: 450px;
+        }
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .section-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        .section-divider .shape-fill {
+            fill: #F8F9FA;
+        }
+        .section-divider-bottom .shape-fill {
+            fill: #FFFFFF;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#hero">
+                <img src="https://i.postimg.cc/HxvxRjsy/logo-astrogenius-Azul.png" alt="Logo AstroGenius Orion" class="h-12">
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#jornada" class="text-slate-600 hover:text-blue-600 transition">A Nossa Jornada</a>
+                <a href="#galeria" class="text-slate-600 hover:text-blue-600 transition">Galeria</a>
+                <a href="#orcamento" class="text-slate-600 hover:text-blue-600 transition">Orçamento</a>
+                <a href="#patrocinio" class="text-slate-600 hover:text-blue-600 transition">Seja um Patrocinador</a>
+                <a href="#contato" class="text-slate-600 hover:text-blue-600 transition">Contato</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#jornada" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">A Nossa Jornada</a>
+            <a href="#galeria" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Galeria</a>
+            <a href="#orcamento" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Orçamento</a>
+            <a href="#patrocinio" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Seja um Patrocinador</a>
+            <a href="#contato" class="block py-2 px-6 text-sm text-slate-600 hover:bg-slate-100">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative text-center py-20 md:py-32 bg-white overflow-hidden">
+             <div class="container mx-auto px-6 relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-800 leading-tight scroll-animate">Como sua marca pode se conectar com a próxima geração de inovadores do Brasil?</h1>
+                <p class="mt-4 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto scroll-animate" style="transition-delay: 150ms;">A história da AstroGenius Orion é sobre talento e dedicação. Ao nos apoiar, sua empresa investe em uma história de sucesso que inspira uma comunidade e representa o futuro da tecnologia no país.</p>
+                <a href="#jornada" class="mt-8 inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition transform hover:scale-105 scroll-animate" style="transition-delay: 300ms;">Faça parte desta história</a>
+            </div>
+            <div class="section-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </section>
+
+        <section id="jornada" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 scroll-animate">A Nossa Jornada: Do Sonho ao Pódio</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto scroll-animate" style="transition-delay: 150ms;">Uma história de amizade, superação e a prova de que grandes talentos podem surgir de qualquer lugar.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-animate space-y-6" style="transition-delay: 200ms;">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-700 mb-4">O Início de um Sonho</h3>
+                            <p class="text-slate-600 mb-4">Tudo começou com o brilho nos olhos de Guilherme (9), Arthur (10) e Gabriel (11). Na Escola Participação, em Fazenda Rio Grande, o que era apenas curiosidade por peças e programação transformou-se em um projeto de vida. Guiados pela paixão e pela mentoria do Professor Luan, eles passaram meses mergulhados em um desafio: construir um robô capaz de competir com os melhores. Foram dias de treinos intensos, centenas de testes, frustrações que viraram aprendizado e uma amizade que se fortalecia a cada obstáculo superado.</p>
+                            <h3 class="text-2xl font-bold text-slate-700 mb-4">A Glória Nacional</h3>
+                            <p class="text-slate-600 mb-6">A final nacional em Jaraguá do Sul foi o clímax de toda essa dedicação. A tensão, a torcida, a esperança de uma cidade inteira depositada em um pequeno robô. E ele não decepcionou. Com uma performance impecável, a AstroGenius Orion executou suas tarefas com uma precisão que emocionou a todos. O grito de "campeão" ecoou, e com ele, a certeza de que aquele sonho tinha se tornado realidade: eles eram os melhores do Brasil e haviam conquistado uma vaga para o mundial.</p>
+                        </div>
+                        <blockquote class="bg-white p-6 rounded-lg shadow-inner border-l-4 border-blue-500">
+                            <p class="text-slate-600 italic">"É emocionante ver nossos alunos alcançando um nível tão elevado. Eles se dedicaram muito, estudaram, testaram ideias e provaram que a educação pode transformar vidas.”</p>
+                            <cite class="mt-4 block font-semibold text-slate-700 text-right">- Elisandra, Coordenadora</cite>
+                        </blockquote>
+                        <blockquote class="bg-white p-6 rounded-lg shadow-inner border-l-4 border-teal-500">
+                            <p class="text-slate-600 italic">"Ver a evolução destes alunos, da primeira linha de código até um robô campeão, é a maior recompensa. O talento deles é imenso, mas foi a dedicação incansável que nos trouxe até aqui. Tenho um orgulho imenso de fazer parte desta jornada."</p>
+                            <cite class="mt-4 block font-semibold text-slate-700 text-right">- Luan Veras, Técnico da Equipe</cite>
+                        </blockquote>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="rounded-lg shadow-xl overflow-hidden scroll-animate aspect-video" style="transition-delay: 300ms;">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/E3_YAGicBT8?si=ZtTAmS7piPaH7Gf2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="rounded-lg shadow-xl overflow-hidden scroll-animate" style="transition-delay: 400ms;">
+                            <img src="https://i.postimg.cc/hPJZQYk8/20250830-200240.jpg" alt="A equipe AstroGenius Orion com seu robô e troféus" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 scroll-animate">Nossos Bastidores</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto scroll-animate" style="transition-delay: 150ms;">Um pouco do nosso dia a dia de treinos, montagem e trabalho em equipe.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="scroll-animate" style="transition-delay: 100ms;">
+                        <img src="https://i.postimg.cc/hvGmQHh9/20250830-090231.jpg" alt="Membro da equipe ajustando o robô" class="rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+                    </div>
+                    <div class="scroll-animate" style="transition-delay: 200ms;">
+                        <img src="https://i.postimg.cc/28VvkRsY/20250830-200040.jpg" alt="Equipe reunida analisando o projeto" class="rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+                    </div>
+                    <div class="scroll-animate" style="transition-delay: 300ms;">
+                        <img src="https://i.postimg.cc/bY6kfNFL/20250830-200203.jpg" alt="Detalhe das peças do robô" class="rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+                    </div>
+                    <div class="scroll-animate" style="transition-delay: 400ms;">
+                        <img src="https://i.postimg.cc/wMbmX0sn/DSC02464.jpg" alt="Momento de concentração durante os testes" class="rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="wro" class="py-20 bg-slate-50 relative overflow-hidden">
+             <div class="section-divider section-divider-bottom" style="transform: none;">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
+                </svg>
+            </div>
+            <div class="container mx-auto px-6 text-center relative">
+                 <div class="flex flex-col md:flex-row justify-center items-center gap-8 text-center mb-8">
+                    <img src="https://wro-association.org/wp-content/uploads/WRO-2025-Theme-Logo_Vector_18Nov-400x308.png" alt="Logo WRO 2025 Season - O Futuro dos Robôs" class="h-32 md:h-40 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 scroll-animate">World Robot Olympiad 2025:<br>O Futuro dos Robôs</h2>
+                </div>
+                <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto scroll-animate" style="transition-delay: 150ms;">A Final Internacional da WRO 2025 será realizada entre 26 e 28 de novembro no prestigiado Sands Expo and Convention Centre, em Singapura. O tema deste ano é **"O Futuro dos Robôs"**, desafiando os competidores a desenvolverem soluções inovadoras para problemas reais por meio da programação, engenharia e tecnologia.</p>
+                <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto scroll-animate" style="transition-delay: 200ms;">O torneio é um dos maiores do mundo, reunindo mais de 500 equipes de cerca de 100 países. Para nós, é a chance de mostrar que a inovação de Fazenda Rio Grande pode competir — e vencer — no cenário global.</p>
+                <div class="mt-12 grid md:grid-cols-4 gap-8 text-left">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition scroll-animate" style="transition-delay: 200ms;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m-9 9h18" /></svg>
+                        <h3 class="font-bold text-xl text-slate-700">Alcance Global</h3>
+                        <p class="mt-2 text-slate-600">Reúne ~100 países e ~3.000 dos mais brilhantes jovens cientistas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition scroll-animate" style="transition-delay: 300ms;">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547a2 2 0 00-.547 1.806l.477 2.387a6 6 0 00.517 3.86l.158.318a6 6 0 003.86.517l2.387.477a2 2 0 001.806-.547a2 2 0 00.547-1.806l-.477-2.387a6 6 0 00-.517-3.86l-.158-.318a6 6 0 01-.517-3.86l.477-2.387a2 2 0 011.806-.547a2 2 0 01.547 1.806l-.477 2.387a6 6 0 01-.517 3.86l-.158.318" /><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 10.25l1.5 1.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5l.75.75" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 4.5l-.75.75" /><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l.75.75" /></svg>
+                        <h3 class="font-bold text-xl text-slate-700">Foco em STEM</h3>
+                        <p class="mt-2 text-slate-600">Desenvolve competências cruciais em Ciência, Tecnologia, Engenharia e Matemática.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition scroll-animate" style="transition-delay: 400ms;">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                        <h3 class="font-bold text-xl text-slate-700">Desafios Reais</h3>
+                        <p class="mt-2 text-slate-600">As equipes criam robôs para solucionar problemas complexos do mundo real.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition scroll-animate" style="transition-delay: 500ms;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z" /></svg>
+                        <h3 class="font-bold text-xl text-slate-700">Prestígio</h3>
+                        <p class="mt-2 text-slate-600">Um selo de excelência reconhecido por universidades e empresas de tecnologia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="orcamento" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 scroll-animate">O Desafio Financeiro: O Sonho Tem um Custo</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto scroll-animate" style="transition-delay: 150ms;">A vaga é o reconhecimento do nosso mérito, mas não inclui os custos da viagem. Para que o nosso sonho se torne realidade, precisamos do apoio de parceiros que acreditem no nosso potencial.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="md:text-left scroll-animate" style="transition-delay: 200ms;">
+                        <h3 class="text-2xl font-bold text-slate-700 mb-4">Orçamento Detalhado da Delegação</h3>
+                        <p class="text-slate-600">Cada centavo do seu apoio será usado de forma transparente para cobrir os custos essenciais da nossa jornada a Singapura para a delegação de 5 pessoas (3 alunos e 2 professores).</p>
+                        <div class="mt-6 bg-slate-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-slate-800">Principais Custos por Pessoa:</h4>
+                            <ul class="space-y-2 text-slate-600 mt-2">
+                                <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg><strong>Passagens Aéreas:</strong> R$ 9.800,00</li>
+                                <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg><strong>Hospedagem:</strong> R$ 2.450,00</li>
+                                <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg><strong>Alimentação e Outros:</strong> R$ 3.007,25</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6 space-y-2">
+                             <p class="text-lg text-slate-600"><span class="font-bold text-slate-800">Custo por Membro:</span> R$ 17.277,97</p>
+                             <p class="text-2xl font-bold text-blue-600"><span class="text-slate-800">Custo Total (Equipe de 5):</span> R$ 86.389,85</p>
+                        </div>
+                        <p class="mt-4 text-sm text-slate-500">O nosso orçamento detalhado por item está disponível para consulta e prestação de contas.</p>
+                    </div>
+                    <div class="chart-container scroll-animate" style="transition-delay: 300ms;">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="patrocinio" class="py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 scroll-animate">Seja um Patrocinador: Invista no Futuro</h2>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto scroll-animate" style="transition-delay: 150ms;">Ao apoiar a nossa equipe, a sua marca associa-se a valores de inovação, educação e excelência, ganhando visibilidade nacional e internacional.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8">
+                    
+                    <div class="bg-white border border-slate-200 rounded-lg p-8 text-center flex flex-col hover:shadow-2xl hover:scale-105 transition-transform duration-300 scroll-animate w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5" style="transition-delay: 100ms;">
+                        <h3 class="font-bold text-2xl text-slate-700">AMIGO DA EQUIPE</h3>
+                        <p class="font-semibold text-slate-500">Contribuidor</p>
+                        <p class="text-4xl font-bold text-slate-800 my-4">R$ 250</p>
+                        <ul class="text-slate-600 space-y-2 text-left flex-grow mb-4">
+                            <li class="flex items-center"><span class="text-blue-500 mr-2">✔</span> Agradecimento nominal nas redes sociais.</li>
+                        </ul>
+                        <a href="https://wa.me/5541991743356?text=Ol%C3%A1!%20Tenho%20interesse%20em%20apoiar%20a%20equipe%20AstroGenius%20Orion." target="_blank" rel="noopener noreferrer" class="mt-auto block w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition text-center">Tenho Interesse</a>
+                    </div>
+                    
+                    <div class="bg-white border border-slate-200 rounded-lg p-8 text-center flex flex-col hover:shadow-2xl hover:scale-105 transition-transform duration-300 scroll-animate w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5" style="transition-delay: 200ms;">
+                        <h3 class="font-bold text-2xl text-slate-700">BRONZE</h3>
+                        <p class="font-semibold text-slate-500">Apoiador</p>
+                        <p class="text-4xl font-bold text-slate-800 my-4">R$ 1.000</p>
+                        <ul class="text-slate-600 space-y-2 text-left flex-grow mb-4">
+                            <li class="flex items-center"><span class="text-blue-500 mr-2">✔</span> Logotipo nas redes sociais.</li>
+                        </ul>
+                        <a href="https://wa.me/5541991743356?text=Ol%C3%A1!%20Tenho%20interesse%20em%20apoiar%20a%20equipe%20AstroGenius%20Orion%20na%20cota%20Bronze." target="_blank" rel="noopener noreferrer" class="mt-auto block w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition text-center">Tenho Interesse</a>
+                    </div>
+                    
+                    <div class="bg-white border border-slate-200 rounded-lg p-8 text-center flex flex-col hover:shadow-2xl hover:scale-105 transition-transform duration-300 scroll-animate w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5" style="transition-delay: 300ms;">
+                        <h3 class="font-bold text-2xl text-slate-700">PRATA</h3>
+                        <p class="font-semibold text-slate-500">Parceiro</p>
+                        <p class="text-4xl font-bold text-slate-800 my-4">R$ 3.000</p>
+                        <ul class="text-slate-600 space-y-2 text-left flex-grow mb-4">
+                            <li class="flex items-center"><span class="text-blue-500 mr-2">✔</span> Benefícios da Cota Bronze</li>
+                            <li class="flex items-center"><span class="text-blue-500 mr-2">✔</span> Logotipo no banner da equipe</li>
+                        </ul>
+                        <a href="https://wa.me/5541991743356?text=Ol%C3%A1!%20Tenho%20interesse%20em%20apoiar%20a%20equipe%20AstroGenius%20Orion%20na%20cota%20Prata." target="_blank" rel="noopener noreferrer" class="mt-auto block w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition text-center">Tenho Interesse</a>
+                    </div>
+
+                    <div class="bg-white border-2 border-blue-600 rounded-lg p-8 text-center flex flex-col shadow-2xl scale-105 relative scroll-animate w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5" style="transition-delay: 400ms;">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">MAIS POPULAR</div>
+                        <h3 class="font-bold text-2xl text-blue-600">OURO</h3>
+                        <p class="font-semibold text-slate-500">Patrocinador Oficial</p>
+                        <p class="text-4xl font-bold text-slate-800 my-4">R$ 7.000</p>
+                        <ul class="text-slate-600 space-y-2 text-left flex-grow mb-4">
+                             <li class="flex items-center"><span class="text-blue-500 mr-2">✔</span> Benefícios da Cota Prata</li>
+                             <li class="flex items-center"><span class="text-blue-500 mr-2">✔</span> Logotipo no uniforme da equipe</li>
+                        </ul>
+                        <a href="https://wa.me/5541991743356?text=Ol%C3%A1!%20Tenho%20interesse%20em%20apoiar%20a%20equipe%20AstroGenius%20Orion%20na%20cota%20Ouro." target="_blank" rel="noopener noreferrer" class="mt-auto block w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition text-center">Tenho Interesse</a>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-lg p-8 text-center flex flex-col hover:shadow-2xl hover:scale-105 transition-transform duration-300 scroll-animate w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5" style="transition-delay: 500ms;">
+                        <h3 class="font-bold text-2xl text-slate-700">PLATINA</h3>
+                        <p class="font-semibold text-slate-500">Patrocinador Master</p>
+                        <p class="text-4xl font-bold text-slate-800 my-4">R$ 15.000+</p>
+                        <ul class="text-slate-600 space-y-2 text-left flex-grow mb-4">
+                            <li class="flex items-center"><span class="text-blue-500 mr-2">✔</span> Benefícios da Cota Ouro</li>
+                            <li class="flex items-center"><span class="text-blue-500 mr-2">✔</span> Logotipo no robô da competição</li>
+                        </ul>
+                        <a href="https://wa.me/5541991743356?text=Ol%C3%A1!%20Tenho%20interesse%20em%20apoiar%20a%20equipe%20AstroGenius%20Orion%20na%20cota%20Platina." target="_blank" rel="noopener noreferrer" class="mt-auto block w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition text-center">Tenho Interesse</a>
+                    </div>
+                </div>
+                 <p class="text-center mt-12 text-slate-600">Estamos abertos a propostas personalizadas e outras formas de apoio. Vamos conversar!</p>
+            </div>
+        </section>
+
+        <section id="impacto" class="py-20 bg-white text-center relative bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1678370923194-1428f52f1683?q=80&w=1974&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-slate-800/70"></div>
+            <div class="container mx-auto px-6 relative">
+                 <h2 class="text-3xl md:text-4xl font-bold text-white scroll-animate">Muito Além de Singapura: Inspirar Gerações Futuras</h2>
+                 <p class="mt-4 text-lg text-white max-w-3xl mx-auto scroll-animate" style="transition-delay: 150ms;">Com o seu apoio, não estaremos apenas a competir, mas também a inspirar centenas de outros jovens da nossa comunidade a seguir o caminho da ciência e da tecnologia. Ajude-nos a construir essa ponte para o futuro.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contato" class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold">Vamos Construir esta Parceria Juntos?</h2>
+            <p class="mt-4 max-w-xl mx-auto">Entre em contato para saber mais sobre o nosso projeto ou para agendar uma apresentação do nosso robô.</p>
+            <div class="mt-8">
+                <p class="text-lg"><strong>Responsável:</strong> Elisandra Wrublak</p>
+                <p class="text-lg mt-2"><strong>Email:</strong> astrogenius.participacao@gmail.com</p>
+                <p class="text-lg mt-2"><strong>Telefone/WhatsApp:</strong> (41) 99174-3356</p>
+                <div class="mt-4 flex justify-center items-center gap-2">
+                    <a href="https://www.instagram.com/astrogenius.orion" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-lg text-white hover:text-blue-300 transition">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.023.047 1.351.058 3.807.058h.468c2.456 0 2.784-.011 3.807-.058.975-.045 1.504-.207 1.857-.344.467-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.047-1.023.058-1.351.058-3.807v-.468c0-2.456-.011-2.784-.058-3.807-.045-.975-.207-1.504-.344-1.857a3.097 3.097 0 00-.748-1.15 3.097 3.097 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                        <span>@astrogenius.orion</span>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-slate-700 pt-8">
+                 <a href="https://wro-association.org/" target="_blank" rel="noopener noreferrer" class="inline-block">
+                    <img src="https://wro-association.org/wp-content/uploads/world-robot-olympiad_logo-white.png" alt="World Robot Olympiad Logo" class="h-10 mx-auto opacity-70 hover:opacity-100 transition">
+                 </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobile-menu a, nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                     if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                     }
+                });
+            });
+
+            const budgetData = {
+                labels: ['Passagens Aéreas', 'Hospedagem', 'Alimentação', 'Logística & Outros', 'Contingência'],
+                datasets: [{
+                    label: 'Distribuição do Orçamento por Pessoa',
+                    data: [9800, 2450, 1750, 1207.25, 1570.72],
+                    backgroundColor: [
+                        '#2563EB',
+                        '#3B82F6',
+                        '#60A5FA',
+                        '#93C5FD',
+                        '#BFDBFE'
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            };
+
+            const budgetConfig = {
+                type: 'doughnut',
+                data: budgetData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#475569',
+                                font: {
+                                    family: "'Inter', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(context.parsed);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            };
+            
+            const budgetChartCtx = document.getElementById('budgetChart')?.getContext('2d');
+            if(budgetChartCtx) {
+                new Chart(budgetChartCtx, budgetConfig);
+            }
+
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
